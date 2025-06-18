@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../conviformer/bin/activate 
+# source ../conviformer/bin/activate # this is for venv that repo expects you to generate just source it yourself
 
 echo $CUDA_VISIBLE_DEVICES
 

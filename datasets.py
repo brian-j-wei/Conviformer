@@ -682,7 +682,7 @@ def build_dataset(is_train, args):
             exit()
     
     elif args.data_set in ['Herbarium22', 'Herbarium22_raw']:
-        Base_DIR = "/users/mvaishn1/scratch/datasets/herbarium-2022-fgvc9_resize/"
+        Base_DIR = "/data/b.j.wei/user_b.j.wei/data/" # changed to ris symbolic link
         train_dir = Base_DIR + "train_images/"
         with open(Base_DIR + 'train_metadata.json', "r", encoding="ISO-8859-1") as file:
             train_meta = json.load(file)
@@ -735,7 +735,7 @@ def build_dataset(is_train, args):
         if args.data_set == 'Herbarium22_raw':
             Base_DIR = "/users/mvaishn1/scratch/datasets/herbarium-2022-fgvc9/"
         else:  # args.data_set == 'Herbarium22'
-            Base_DIR = "/cifs/data/tserre_lrs/projects/prj_fossils/data/raw_data/herbarium-2022-fgvc9_resize/"
+            Base_DIR = "/data/b.j.wei/user_b.j.wei/data/"
         test_dir = Base_DIR + "test_images/"
         with open(Base_DIR + 'test_metadata.json', "r", encoding="ISO-8859-1") as file:
             test_meta = json.load(file)

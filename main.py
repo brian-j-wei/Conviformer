@@ -32,6 +32,7 @@ from datasets import build_dataset
 from engine import train_one_epoch, evaluate
 from samplers import RASampler
 import models
+from models import load_state_dict
 import utils
 
 def get_args_parser():
@@ -162,7 +163,7 @@ def get_args_parser():
                         help='device to use for training / testing')
     parser.add_argument('--seed', default=0, type=int)
     parser.add_argument('--resume', default='', help='resume from checkpoint')
-    parser.add_argument('--ckpt', default='/gpfs/data/tserre/data/mvaishn1/fossil/weights_vit/300ep_convit_base_patch_448_herb21.pth', help='load from checkpoint')
+    parser.add_argument('--ckpt', default='../../releaf/data/conviformer_checkpoint.pth', help='load from checkpoint')
     parser.add_argument('--save_every', default=None, type=int, help='save model every epochs')
     parser.add_argument('--start_epoch', default=0, type=int, metavar='N',
                         help='start epoch')
@@ -338,7 +339,7 @@ def main(args):
     start_time = time.time()
     max_accuracy = 0.0
 
-    for epoch in range(args.start_epoch, args.epochs):
+    for epoch in tqdm(range(args.start_epoch, args.epochs)):
 
         if args.distributed:
             data_loader_train.sampler.set_epoch(epoch)
